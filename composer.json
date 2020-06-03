@@ -1,0 +1,22 @@
+{
+    "name": "php-mvc/quizzz",
+    "description": "Online Quiz application using my framework (php)",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vietTung",
+            "email": "tranviettung369@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Phplite\\": "phplite/src/"
+        }
+    }
+}
