@@ -3,6 +3,8 @@
 namespace Phplite\Bootstrap;
 
 use Phplite\Exceptions\Whoops;
+use Phplite\Session\Session;
+use Phplite\Cookie\Cookie;
 
 class App {
     /**
@@ -19,8 +21,11 @@ class App {
      * @return void
      */
     public static function run() {
+        // Register whoops
         Whoops::handle();
 
-        throw new \Exception("There is exception");
+        // Start session
+        Session::start();
+
     }
 }
