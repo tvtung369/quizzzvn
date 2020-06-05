@@ -6,6 +6,7 @@ use Phplite\Exceptions\Whoops;
 use Phplite\Session\Session;
 use Phplite\Cookie\Cookie;
 use Phplite\Http\Server;
+use Phplite\Http\Request;
 
 class App {
     /**
@@ -28,8 +29,13 @@ class App {
         // Start session
         Session::start();
 
-        echo Server::get('DOCUMENT_ROOT');
-        // print_r(Server::all());
+        // Handle the request
+        Request::handle();
 
+        // echo Server::get('HTTP_REFERER'); die();
+
+        echo "<pre>";
+        print_r(Request::all());
+        echo "</pre>";
     }
 }
