@@ -2,6 +2,10 @@
 
 use Phplite\Router\Route;
 
+Route::get('/', function () {
+    return "<a href='http://quizzz.vn/admin/owner/dashboard'>Click</a>";
+});
+
 Route::get('users/{id}/edit', function() {
     echo 'test';
 });

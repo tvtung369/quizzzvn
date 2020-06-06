@@ -161,7 +161,7 @@ class Route {
         static::excuteMiddleware($route);
         $callback = $route['callback'];
         if(is_callable($callback)) {
-            call_user_func_array($callback, $params);
+            return call_user_func_array($callback, $params);
         } else if (strpos($callback, '@') !== false) {
             list($controller, $method) = explode('@', $callback);
             $controller = 'App\Controllers\\' . $controller;

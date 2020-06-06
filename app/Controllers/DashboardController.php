@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+use Phplite\Http\Response;
+use Phplite\Url\Url;
+
 class DashboardController {
     public function index() {
-        $names = ['Tung', 'Tien'];
-        return $names;
+        return Url::previous();
     }
 }
