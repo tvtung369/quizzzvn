@@ -81,8 +81,8 @@ class File {
      * @return mixed
      */
     public static function require_directory($path) {
-        $file = array_diff(scandir(static::path($path)), ['.', '..']);
-        foreach($file as $file) {
+        $files = array_diff(scandir(static::path($path)), ['.', '..']);
+        foreach($files as $file) {
             $file_path = $path . static::ds() . $file;
             if(static::exists($file_path)) {
                 static::require_file($file_path);
