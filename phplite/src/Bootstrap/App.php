@@ -7,6 +7,7 @@ use Phplite\Session\Session;
 use Phplite\Cookie\Cookie;
 use Phplite\Http\Server;
 use Phplite\Http\Request;
+use Phplite\Router\Route;
 
 class App {
     /**
@@ -32,10 +33,9 @@ class App {
         // Handle the request
         Request::handle();
 
-        // echo Server::get('HTTP_REFERER'); die();
+        include './../routes/web.php';
 
-        echo "<pre>";
-        print_r(Request::all());
-        echo "</pre>";
+        // Handle the route
+        $data = Route::handle();
     }
 }

@@ -84,7 +84,7 @@ class Request {
             list($request_uri, $query_string) = explode('?', $request_uri);
         }
 
-        static::$url = $request_uri;
+        static::$url = $request_uri? :'/';
         static::$query_string = $query_string;
     }
 
