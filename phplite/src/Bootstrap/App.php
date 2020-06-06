@@ -7,6 +7,7 @@ use Phplite\Session\Session;
 use Phplite\Cookie\Cookie;
 use Phplite\Http\Server;
 use Phplite\Http\Request;
+use Phplite\Http\Response;
 use Phplite\Router\Route;
 
 class App {
@@ -37,5 +38,7 @@ class App {
 
         // Handle the route
         $data = Route::handle();
+
+        Response::output($data);
     }
 }
