@@ -5,6 +5,7 @@ namespace Phplite\Bootstrap;
 use Phplite\Exceptions\Whoops;
 use Phplite\Session\Session;
 use Phplite\Cookie\Cookie;
+use Phplite\File\File;
 use Phplite\Http\Server;
 use Phplite\Http\Request;
 use Phplite\Http\Response;
@@ -34,7 +35,8 @@ class App {
         // Handle the request
         Request::handle();
 
-        include './../routes/web.php';
+        // Require all routes directory
+        File::require_directory('routes');
 
         // Handle the route
         $data = Route::handle();
