@@ -4,6 +4,7 @@ namespace Phplite\View;
 
 use Phplite\File\File;
 use Jenssegers\Blade\Blade;
+use Phplite\Session\Session;
 
 class View {
     /**
@@ -19,6 +20,10 @@ class View {
      * @return string
      */
     public static function render($path, $data=[]) {
+        $errors = Session::flash('errors');
+        $old = Session::flash('old');
+        $data = array_merge($data, ['errors' => $errors, 'old' => $old]);
+
         return static::bladeRender($path, $data);
     }
 
