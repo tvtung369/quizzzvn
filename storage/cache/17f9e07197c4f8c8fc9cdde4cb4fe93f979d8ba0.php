@@ -6,6 +6,6 @@
     <title>Dashboard</title>
 </head>
 <body>
-    Hello <?php echo $name; ?> From View Engine
+    Hello <?php echo e($name); ?> From Blade Engine
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\quizzz\views/admin/dashboard.blade.php ENDPATH**/ ?>

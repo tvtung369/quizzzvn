@@ -6,6 +6,6 @@
     <title>Dashboard</title>
 </head>
 <body>
-    Hello <?php echo $name; ?> From View Engine
+    Hello {{ $name}} From Blade Engine
 </body>
 </html>
