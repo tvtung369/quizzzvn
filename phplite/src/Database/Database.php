@@ -5,8 +5,6 @@ namespace Phplite\Database;
 use PDO;
 use PDOException;
 use Phplite\File\File;
-use Phplite\Http\Request;
-use Phplite\Url\Url;
 
 class Database {
     /**

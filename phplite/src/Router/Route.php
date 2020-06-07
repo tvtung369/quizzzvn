@@ -3,6 +3,7 @@
 namespace Phplite\Router;
 
 use Phplite\Http\Request;
+use Phplite\View\View;
 
 class Route {
     /**
@@ -147,7 +148,7 @@ class Route {
             }
         }
 
-        die('Not found page');
+        return View::render('errors.404');
     }
 
     /**
