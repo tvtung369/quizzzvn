@@ -14,7 +14,7 @@ class Response {
      * @return mixed
      */
     public static function json($data) {
-        return json_encode($data);
+        return json_encode($data, JSON_UNESCAPED_UNICODE);
     }
 
     /**
