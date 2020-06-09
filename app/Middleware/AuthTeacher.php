@@ -10,11 +10,11 @@ class AuthTeacher {
     public function handle() {
         $auth = Session::get('teachers') ? : Cookie::get('teachers');
         if(! $auth) {
-            return redirect(url('teacher/dashboard'));
+            return redirect(url('teacher-panel/dashboard'));
         }
         $teacher = Teacher::where('id', '=', $auth)->first();
         if(! $teacher) {
-            return redirect(url('teacher/'));
+            return redirect(url('teacher-panel/login'));
         }
     }
 }

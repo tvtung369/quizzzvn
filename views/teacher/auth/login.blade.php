@@ -5,7 +5,7 @@
 
 
 <h4 class="text-dark mb-5">Sign In</h4>
-<form action="{{ url('teacher/') }}" method="POST">
+<form action="{{ url('teacher-panel/login') }}" method="POST">
 <div class="form-row">
     @if(session('message'))
     <div class="col-md-12 mb-3">

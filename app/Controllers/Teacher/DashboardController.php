@@ -14,6 +14,7 @@ class DashboardController {
      * @return \Phplite\View\View
      */
     public function index() {
-        return auth('teachers')->username;
+        $title = "Dashboard";
+        return view('teacher.dashboard.index', ['title' => $title]);
     }
 }

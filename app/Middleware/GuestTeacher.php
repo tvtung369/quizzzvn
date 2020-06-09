@@ -8,11 +8,11 @@ use Phplite\Session\Session;
 
 class GuestTeacher {
     public function handle() {
-        $auth = Session::get('teacher') ? : Cookie::get('teacher');
+        $auth = Session::get('teachers') ? : Cookie::get('teachers');
         if($auth) {
             $teacher = Teacher::where('id', '=', $auth)->first();
             if($teacher) {
-                return redirect(url('teacher/dashboard'));
+                return redirect(url('teacher-panel/dashboard'));
             }
         }
     }
