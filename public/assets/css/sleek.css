@@ -7113,6 +7113,8 @@ label {
 
 /*===== BREDCRUMB =====*/
 .breadcrumb-wrapper {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 30px; }
   .breadcrumb-wrapper h1 {
     color: #1b223c;
