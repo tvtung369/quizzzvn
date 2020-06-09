@@ -148,7 +148,7 @@ class Route {
             }
         }
 
-        return View::render('errors.404');
+        return view('errors.404');
     }
 
     /**

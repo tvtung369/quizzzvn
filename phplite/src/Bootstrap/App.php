@@ -2,6 +2,7 @@
 
 namespace Phplite\Bootstrap;
 
+use App\Models\User;
 use Phplite\Exceptions\Whoops;
 use Phplite\Session\Session;
 use Phplite\Cookie\Cookie;
@@ -31,13 +32,13 @@ class App {
 
         // Start session
         Session::start();
-
+        
         // Handle the request
         Request::handle();
-
+        
         // Require all routes directory
         File::require_directory('routes');
-
+        
         // Handle the route
         $data = Route::handle();
 
