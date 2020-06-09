@@ -46,7 +46,19 @@ class AuthController {
 
         Request::post('remember') == 'on' ? Cookie::set('teachers', $admin->id) : Session::set('teachers', $admin->id);
 
-        return redirect('teacher/dashboard');
+        return redirect(url('teacher-panel/dashboard'));
+    }
+
+    /**
+     * Logout teacher
+     *
+     * @return \Phplite\Url\Url
+     */
+    public function logout() {
+        Cookie::remove('teachers');
+        Session::remove('teachers');
+
+        return redirect(url('teacher-panel/login'));
     }
 }
 
