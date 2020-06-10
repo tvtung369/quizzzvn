@@ -5,6 +5,7 @@ namespace Phplite\Validation;
 use Phplite\Http\Request;
 use Phplite\Session\Session;
 use Phplite\Url\Url;
+use Phplite\Validation\Rules\UniqueRule;
 use Rakit\Validation\Validator;
 
 class Validate {
@@ -22,9 +23,11 @@ class Validate {
      */
     public static function validate(Array $rules, $json) {
         $validator = new Validator;
+
+        $validator->addValidator('unique', new UniqueRule());
     
         $validation = $validator->validate($_POST + $_FILES, $rules);
-        
+
         // handling errors
         $errors = $validation->errors();
 
