@@ -519,7 +519,7 @@ class Database {
         static::$limit = '';
         static::$offset = '';
         static::$query = '';
-        static::$binding = '';
+        static::$binding = [];
         static::$instance = '';
     }
 
