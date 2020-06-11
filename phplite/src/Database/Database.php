@@ -472,7 +472,7 @@ class Database {
         static::execute($data, $query);
 
         $object_id = static::$connection->lastInsertId();
-        $object = static::table($table)->where('subject_id', '=', $object_id)->first();
+        $object = static::table($table)->where('id', '=', $object_id)->first();
 
         return $object;
     }
