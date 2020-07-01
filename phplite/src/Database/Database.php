@@ -2,6 +2,7 @@
 
 namespace Phplite\Database;
 
+use Exception;
 use PDO;
 use PDOException;
 use Phplite\File\File;
@@ -356,7 +357,7 @@ class Database {
     public static function orderBy($column, $type=null) {
         $sep = static::$order_by ? " , " : " ORDER BY ";
         $type = strtoupper($type);
-        $type = ($type != null && in_array($type, ['ASC', 'DESC'])) ? $type : "ASC";
+        $type = ($type != null && in_array($type, ['ASC', 'DESC', 'RAND()'])) ? $type : "ASC";
         $statement = $sep . $column . " " . $type . " ";
 
         static::$order_by .= $statement;
@@ -472,7 +473,7 @@ class Database {
         static::execute($data, $query);
 
         $object_id = static::$connection->lastInsertId();
-        $object = static::table($table)->where('id', '=', $object_id)->first();
+        $object = $object_id ? static::table($table)->where('id', '=', $object_id)->first() : null;
 
         return $object;
     }
@@ -521,6 +522,7 @@ class Database {
         static::$query = '';
         static::$binding = [];
         static::$instance = '';
+        static::$setter = '';
     }
 
     /**
