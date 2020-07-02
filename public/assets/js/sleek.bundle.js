@@ -7314,11 +7314,11 @@
 	      todoInputForm = todoInput.querySelector("form"),
 	      item = todoInputForm.querySelector("input");
 
-	    document.querySelector("#add-task").addEventListener("click", function (e) {
-	      e.preventDefault();
-	      todoInput.classList.toggle("d-block");
-	      item.focus();
-	    });
+	    // document.querySelector("#add-task").addEventListener("click", function (e) {
+	    //   e.preventDefault();
+	    //   todoInput.classList.toggle("d-block");
+	    //   item.focus();
+	    // });
 
 	    todoInputForm.addEventListener("submit", function (e) {
 	      e.preventDefault();
@@ -7326,17 +7326,21 @@
 	        return;
 	      }
 	      list.innerHTML =
-	        '<div class="todo-single-item d-flex flex-row justify-content-between">' +
-	        '<i class="mdi"></i>' +
-	        '<span>' +
-	        item.value +
-	        '</span>' +
-	        '<span class="badge badge-primary">Today</span>' +
+	        '<div class="todo-single-item d-flex flex-row justify-content-between alert alert-dismissible fade show" role="alert">' +
+	          '<i class="mdi"></i>' +
+	          '<span>' +
+	            item.value +
+	          '</span>' +
+	          '<div class="task-content">' +
+	            '<span data-dismiss="alert" aria-label="Close">' +
+	              '<svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg"><path d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"/><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"/></svg>' +
+	            '</span>' +
+	          '</div>' +
 	        '</div>' +
-	        list.innerHTML;
+	      list.innerHTML;
 	      item.value = "";
 	      //Close input field
-	      todoInput.classList.toggle("d-block");
+	      // todoInput.classList.toggle("d-block");
 	      todoCheckAll();
 	    });
 
@@ -7376,6 +7380,29 @@
 	        body.addClass(togglerOutClass).removeClass(togglerInClass);
 	      }
 	    });
+	  }
+
+
+	  /*======== 9. DROPDOWN NOTIFY ========*/
+	  var dropdownToggle = $('.notify-toggler');
+	  var dropdownNotify = $('.dropdown-notify');
+
+	  if (dropdownToggle.length !== 0){
+	    dropdownToggle.on('click', function () {
+	      if (!dropdownNotify.is(':visible')){
+	        dropdownNotify.fadeIn(5);
+	      }else {
+	        dropdownNotify.fadeOut(5);
+	      }
+	    });
+
+	    $(document).mouseup(function (e) {
+	      if (!dropdownNotify.is(e.target) && dropdownNotify.has(e.target).length === 0){
+	        dropdownNotify.fadeOut(5);
+	      }
+	    });
+
+	   
 	  }
 
 	});
@@ -9965,14 +9992,12 @@
 	/* ====== Index ======
 
 	1. JEKYLL INSTANT SEARCH
-	2. SCROLLBAR CONTENT
-	3. TOOLTIPS AND POPOVER
-	4. MULTIPLE SELECT
+	2. TOOLTIPS AND POPOVER
+	3. MULTIPLE SELECT
 	4. LOADING BUTTON
 	5. TOASTER
 	6. PROGRESS BAR
 	7. CIRCLE PROGRESS
-	8. DATE PICKER
 
 	====== End ======*/
 
@@ -9993,54 +10018,7 @@
 	    });
 	  }
 
-
-	  /*======== 2. SCROLLBAR CONTENT ========*/
-
-	  var dataScrollHeight = $("[data-scroll-height]");
-	  function scrollWithBigMedia(media) {
-	    if (media.matches) {
-	      /* The viewport is greater than, or equal to media screen size */
-	      dataScrollHeight.each(function () {
-	        var scrollHeight = $(this).attr("data-scroll-height");
-	        $(this).css({ height: scrollHeight + "px", overflow: "hidden" });
-	      });
-
-	      //For content that needs scroll
-	      $(".slim-scroll")
-	        .slimScroll({
-	          opacity: 0,
-	          height: "100%",
-	          color: "#999",
-	          size: "5px",
-	          touchScrollStep: 50
-	        })
-	        .mouseover(function () {
-	          $(this)
-	            .next(".slimScrollBar")
-	            .css("opacity", 0.4);
-	        });
-	    } else {
-	      /* The viewport is less than media screen size */
-	      dataScrollHeight.css({ height: "auto", overflow: "auto" });
-	    }
-	  }
-
-	  if (dataScrollHeight.length != 0) {
-	    var media = window.matchMedia("(min-width: 992px)");
-	    scrollWithBigMedia(media); // Call listener function at run time
-	    media.addListener(scrollWithBigMedia); // Attach listener function on state changes
-	  }
-
-	  var chatLeftContent = $('#chat-left-content');
-	  if(chatLeftContent.length != 0){
-	    chatLeftContent.slimScroll({});
-	  }
-	  var chatRightContent = $('#chat-right-content');
-	  if(chatRightContent.length != 0){
-	    chatRightContent.slimScroll({});
-	  }
-
-	  /*======== 3. TOOLTIPS AND POPOVER ========*/
+	  /*======== 2. TOOLTIPS AND POPOVER ========*/
 	  var tooltip = $('[data-toggle="tooltip"]');
 	  if(tooltip.length != 0){
 	    tooltip.tooltip({
@@ -10057,7 +10035,7 @@
 	  }
 
 
-	  /*======== 4. MULTIPLE SELECT ========*/
+	  /*======== 3. MULTIPLE SELECT ========*/
 	  var multipleSelect = $(".js-example-basic-multiple");
 	  if(multipleSelect.length != 0){
 	    multipleSelect.select2();
@@ -10088,56 +10066,8 @@
 	    });
 	  }
 
-	  /*======== 5. TOASTER ========*/
-
-	  var toaster = $('#toaster');
-
-	  function callToaster(positionClass) {
-	    toastr.options = {
-	      closeButton: true,
-	      debug: false,
-	      newestOnTop: false,
-	      progressBar: true,
-	      positionClass: positionClass,
-	      preventDuplicates: false,
-	      onclick: null,
-	      showDuration: "300",
-	      hideDuration: "1000",
-	      timeOut: "5000",
-	      extendedTimeOut: "1000",
-	      showEasing: "swing",
-	      hideEasing: "linear",
-	      showMethod: "fadeIn",
-	      hideMethod: "fadeOut"
-	    };
-	    toastr.success("Welcome to Sleek Dashboard", "Howdy!");
-	  }
-
-	  if(toaster.length != 0){
-	    if (document.dir != "rtl") {
-	      callToaster("toast-top-right");
-	    } else {
-	      callToaster("toast-top-left");
-	    }
-
-	  }
-
 	  /*======== 6. PROGRESS BAR ========*/
 	  NProgress.done();
-
-	  /*======== 6. PROGRESS BAR ========*/
-	  $('.slim-scroll-right-sidebar-2').slimScroll({
-	    opacity: 0,
-	    height: '100%',
-	    color: "#999",
-	    size: "5px",
-	    touchScrollStep: 50
-	  })
-	    .mouseover(function () {
-	      $(this)
-	        .next(".slimScrollBar")
-	        .css("opacity", 0.4);
-	    });
 
 	    /*======== 7. CIRCLE PROGRESS ========*/
 	    var circle = $('.circle');
@@ -10150,24 +10080,6 @@
 	        emptyFill: [gray]
 	      });
 	    }
-
-	  /*======== 8. DATE PICKER ========*/
-	  // $('input[name="dateRange"]').daterangepicker({
-	  //   autoUpdateInput: false,
-	  //   singleDatePicker: true,
-	  //   locale: {
-	  //     cancelLabel: 'Clear'
-	  //   }
-	  // });
-
-	  // $('input[name="dateRange"]').on('apply.daterangepicker', function (ev, picker) {
-	  //   $(this).val(picker.startDate.format('MM/DD/YYYY'));
-	  // });
-
-	  // $('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
-	  //   $(this).val('');
-	  // });
-
 	});
 
 	/* ====== Index ======
@@ -10630,6 +10542,37 @@
 	      sidebar_light.trigger("click");
 	    }
 
+	    // Spacing Layout
+	    var default_spacing = jQuery('.default-spacing-to');
+	    var compact_spacing = jQuery('.compact-spacing-to');
+
+	    default_spacing.click(function () {
+	      jQuery(this).addClass('btn-right-sidebar-2-active');
+	      compact_spacing.removeClass('btn-right-sidebar-2-active');
+	      body.removeClass('compact-spacing');
+
+	      //Store in local storage
+	      setOptions("navigationSpacing", default_spacing);
+	    });
+
+	    //Click for current options
+	    if (currentOptions.navigationSpacing === default_spacing) {
+	      default_spacing.trigger("click");
+	    }
+
+	    compact_spacing.click(function () {
+	      jQuery(this).addClass('btn-right-sidebar-2-active');
+	      default_spacing.removeClass('btn-right-sidebar-2-active');
+	      body.addClass('compact-spacing');
+
+	      //Store in local storage
+	      setOptions("navigationSpacing", "compact-spacing");
+	    });
+
+	    //Click for current options
+	    if (currentOptions.navigationSpacing === "compact-spacing") {
+	      compact_spacing.trigger("click");
+	    }
 
 	    // Direction
 	    var ltr = jQuery('.ltr-to');
