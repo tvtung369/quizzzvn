@@ -16,15 +16,15 @@
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
     <!-- PLUGINS CSS STYLE -->
-   <link href="{{ asset('assets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
+   <link href="{{ asset('teacher/assets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
 
     <!-- SLEEK CSS -->
-    <link id="sleek-css" rel="stylesheet" href="{{ asset('assets/css/sleek.css')}}" />
+    <link id="sleek-css" rel="stylesheet" href="{{ asset('teacher/assets/css/sleek.css')}}" />
 
 
 
     <!-- FAVICON -->
-    <link href="{{ asset('assets/img/favicon.png')}}" rel="shortcut icon" />
+    <link href="{{ asset('teacher/assets/img/favicon.png')}}" rel="shortcut icon" />
 
     <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -34,7 +34,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-    <script src="{{ asset('assets/plugins/nprogress/nprogress.js')}}"></script>
+    <script src="{{ asset('teacher/assets/plugins/nprogress/nprogress.js')}}"></script>
   </head>
 
 </head>

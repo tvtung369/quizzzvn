@@ -15,6 +15,7 @@ class DashboardController {
      */
     public function index() {
         $title = "Dashboard";
-        return view('teacher.dashboard.index', ['title' => $title]);
+        $active = 'dashboard';
+        return view('teacher.dashboard.index', ['title' => $title, 'active' => $active]);
     }
 }

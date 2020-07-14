@@ -118,10 +118,9 @@
                                 <div class="col-md-3 mb-3">
                                     <label for="validationServerGender">Giới tính</label>
                                     <select name="gender" class="form-control @if($errors && $errors->has('address')) is-invalid @endif" required id="validationServerGender">
-                                        <option>Chọn giới tính</option>
+                                        <option value="0">Chọn giới tính</option>
                                         <option value="1">Nam</option>
                                         <option value="2">Nữ</option>
-                                        <option value="3">Không xác định</option>
                                     </select>
                                     @if(isset($teacher))
                                     <script>

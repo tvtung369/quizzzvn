@@ -1,0 +1,60 @@
+{
+  "name": "sleek-dashboard",
+  "version": "1.0.0-beta.5",
+  "description": "Premium & Free Bootstrap 4 admin dashboard template by TAFcoder.com",
+  "author": "TAF Coder<hello@tafcoder.com> (https://tafcoder.com/)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tafcoder/sleek-dashboard.git"
+  },
+  "homepage": "https://sleek.tafcoder.com/",
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "bootstrap",
+    "admin",
+    "dashboard",
+    "responsive",
+    "front-end",
+    "admin-dashboard",
+    "bootstrap4",
+    "html",
+    "theme",
+    "dashboard-templates",
+    "admin-panel",
+    "admin-template",
+    "uikit",
+    "bootstrap-theme",
+    "bootstrap-template",
+    "admin",
+    "bootstrap-admin-dashboard",
+    "jekyll"
+  ],
+  "scripts": {
+    "start": "npm-run-all --parallel serve css:watch js:watch",
+    "css": "node-sass scss/sleek.scss assets/css/sleek.css --source-map true && npm run rtl",
+    "css:watch": "npm run css && node-sass -w scss/sleek.scss assets/css/sleek.css --source-map true",
+    "css:prod": "node-sass scss/sleek.scss assets/css/sleek.min.css --output-style=compressed && npm run rtl:prod",
+    "rtl": "rtlcss assets/css/sleek.css",
+    "rtl:prod": "rtlcss assets/css/sleek.min.css",
+    "css:build": "npm-run-all css css:prod",
+    "js": "rollup -c --sourcemap",
+    "js:watch": "rollup -c --sourcemap -w",
+    "js:min": "uglifyjs assets/js/sleek.bundle.js --output assets/js/sleek.bundle.min.js"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.29.0",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.4",
+    "rtlcss": "^2.4.1",
+    "uglify-js": "^3.7.5"
+  }
+}

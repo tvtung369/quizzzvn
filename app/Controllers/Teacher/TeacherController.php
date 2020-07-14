@@ -5,7 +5,6 @@ namespace App\Controllers\Teacher;
 use App\Models\Teacher;
 use Phplite\Http\Request;
 use Phplite\Session\Session;
-use Phplite\Url\Url;
 use Phplite\Validation\Validate;
 
 class TeacherController {
@@ -17,7 +16,8 @@ class TeacherController {
     public function index() {
         $list = Teacher::where('id', '!=', 1)->get();
         $title = "Danh sách giáo viên";
-        return view('teacher.teachers.index', ['list' => $list, 'title' => $title]);
+        $active = 'teacher';
+        return view('teacher.teachers.index', ['active' => $active, 'list' => $list, 'title' => $title]);
     }
 
     /**
@@ -27,11 +27,12 @@ class TeacherController {
      */
     public function create() {
         $title = 'Thêm mới giáo viên';
-        return view('teacher.teachers.detail', ['title' => $title]);
+        $active = 'teacher';
+        return view('teacher.teachers.detail', ['active' => $active, 'title' => $title]);
     }
 
     /**
-     * Store new admin
+     * Store new teacher
      *
      * @return \Phplite\Url\Url
      */
@@ -71,7 +72,8 @@ class TeacherController {
             return redirect(url('teacher-panel/teachers'));
         }
         $title = "Chỉnh sửa ". $teacher->name;
-        return view('teacher.teachers.detail', ['teacher' => $teacher, 'title' => $title]);
+        $active = 'teacher';
+        return view('teacher.teachers.detail', ['active' => $active, 'teacher' => $teacher, 'title' => $title]);
     }
 
     /**

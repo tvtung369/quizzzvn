@@ -1,15 +1,14 @@
 @extends('teacher.layouts.layout')
 
 @section('css')
-<link href="{{ asset('assets/plugins/data-tables/datatables.bootstrap4.min.css')}}" rel="stylesheet" />
-<link href="{{ asset('assets/plugins/data-tables/responsive.datatables.min.css')}}" rel="stylesheet" />
-<link href="https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css">
+<link href="{{ asset('teacher/assets/plugins/data-tables/datatables.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{ asset('teacher/assets/plugins/data-tables/responsive.datatables.min.css')}}" rel="stylesheet" />
 @endsection
 
 @section('js')
-<script src="{{ asset('assets/plugins/data-tables/jquery.datatables.min.js')}}"></script>
-<script src="{{ asset('assets/plugins/data-tables/datatables.bootstrap4.min.js')}}"></script>
-<script src="{{ asset('assets/plugins/data-tables/datatables.responsive.min.js')}}"></script>
+<script src="{{ asset('teacher/assets/plugins/data-tables/jquery.datatables.min.js')}}"></script>
+<script src="{{ asset('teacher/assets/plugins/data-tables/datatables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('teacher/assets/plugins/data-tables/datatables.responsive.min.js')}}"></script>
 
 <script>
   jQuery(document).ready(function() {
